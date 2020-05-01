@@ -31,6 +31,7 @@ export const skeletonStyles = css`
 `;
 
 export default function Skeleton({
+  classNamme,
   count,
   duration,
   width,
@@ -44,7 +45,7 @@ export default function Skeleton({
     let style = {};
 
     if (width !== null) {
-      style.width = width;
+      style.maxWidth = width;
     }
 
     if (height !== null) {
@@ -58,7 +59,7 @@ export default function Skeleton({
     elements.push(
       <span
         key={i}
-        className="react-loading-skeleton"
+        className={`react-loading-skeleton ${className}`}
         css={css`
           ${skeletonStyles}
           animation: ${skeletonKeyframes} ${duration}s ease-in-out infinite
